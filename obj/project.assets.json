@@ -38,6 +38,19 @@
           }
         }
       },
+      "GitTools.Core-dotnet/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.3/GitTools.Core.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.3/GitTools.Core.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -2609,6 +2622,25 @@
         "lib/net8.0/Azure.Identity.xml",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "GitTools.Core-dotnet/1.0.0": {
+      "sha512": "B8YxMx+yW++f2R1qPqiWGLkxOsZaiBV8hJqqU4gDO0k5qmOqnmueE0DEP5OoZuYf4HFBtdFt1EHFf3aA/Odl0w==",
+      "type": "package",
+      "path": "gittools.core-dotnet/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gittools.core-dotnet.1.0.0.nupkg.sha512",
+        "gittools.core-dotnet.nuspec",
+        "lib/net4/GitTools.Core.dll",
+        "lib/net4/GitTools.Core.pdb",
+        "lib/net4/GitTools.Core.xml",
+        "lib/net45/GitTools.Core.dll",
+        "lib/net45/GitTools.Core.pdb",
+        "lib/net45/GitTools.Core.xml",
+        "lib/netstandard1.3/GitTools.Core.dll",
+        "lib/netstandard1.3/GitTools.Core.pdb"
       ]
     },
     "Humanizer/2.14.1": {
@@ -6559,6 +6591,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "GitTools.Core-dotnet >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.7",
       "Microsoft.EntityFrameworkCore >= 10.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.7",
@@ -6611,6 +6644,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "GitTools.Core-dotnet": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[10.0.7, )"
@@ -7081,6 +7118,16 @@
   },
   "logs": [
     {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
       "code": "NU1901",
       "level": "Warning",
       "warningLevel": 1,
@@ -7096,6 +7143,16 @@
       "warningLevel": 1,
       "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
       "libraryId": "NuGet.Protocol",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
       "targetGraphs": [
         "net10.0"
       ]

@@ -9,4 +9,8 @@ public class Character
     public string Game { get; set; } = string.Empty;
     
     public string Role { get; set; } = string.Empty;
+
+    public CharacterType? Type { get; set; } = new CharacterType();
+
+    public CharacterColor? Color { get; set; } =  new CharacterColor();
 }

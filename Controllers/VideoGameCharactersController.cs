@@ -1,22 +1,86 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using VideoGameCharacterApi.Data;
+using VideoGameCharacterApi.Dtos;
 using VideoGameCharacterApi.Models;
-using VideoGameCharacterApi.Services;
 
 namespace VideoGameCharacterApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/characters")]
     [ApiController]
-    public class VideoGameCharactersController(IVideoGameCharacterService service) : ControllerBase
+    public class VideoGameCharactersController(AppDbContext context) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Character>>> GetCharacters() => 
-            Ok(await service.GetAllCharactersAsinc());
-
-        [HttpGet("{id}")]
+        public async Task<ActionResult<List<Character>>> GetAllCharacters()
+        {
+            var characters = await context.Characters.Select(c => new CharacterDto
+            {
+                Name = c.Name,
+                Game = c.Game,
+                Role = c.Role,
+                TypeName = c.Type.Name,
+                Color = c.Color.ColorName
+            }).ToListAsync();
+            return Ok(characters);
+        } 
+        
+        [HttpGet("/byId/{id}")]
         public async Task<ActionResult<Character>> GetCharacterById(int id)
         {
-            var result = await service.GetCharacterByIdAsinc(id);
-            return result != null ? Ok(Task.FromResult(result)) :  NotFound("Character not found");
+            var result = await context.Characters.Where(c =>  c.Id == id).Select(c => new CharacterDto
+            {
+                Name = c.Name,
+                Game = c.Game,
+                Role = c.Role,
+            }).FirstOrDefaultAsync();
+            
+            return result != null
+                ? Ok(new
+                    GenericResponse
+                    {
+                        Data = result,
+                        Message = "success"
+                    })
+                : NotFound(new
+                    GenericResponse
+                    {
+                        Message = "Failed!",
+                        Success = false
+                    });
         }
+
+        [HttpGet("/byColor/{id:int}/{color:alpha}")]
+        public async Task<ActionResult<Character>> GetCharacterByColor([FromQuery] int id, string hany)
+        {
+            var result = await context.Characters.Where(c =>  c.Id == id).Select(c => new CharacterDto
+            {
+                Name = c.Name,
+                Game = c.Game,
+                Role = c.Role,
+            }).FirstOrDefaultAsync();
+            
+            return result != null
+                ? Ok(new
+                    GenericResponse
+                    {
+                        Data = result,
+                        Message = "success"
+                    })
+                : NotFound(new
+                    GenericResponse
+                    {
+                        Message = "Failed!",
+                        Success = false
+                    });
+        }
+        
     }
+}
+
+
+public class GenericResponse
+{
+    public string? Message { get; set; } = string.Empty;
+    public object? Data { get; set; }
+    public bool Success { get; set; } = true;
 }

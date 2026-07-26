@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "VideoGameCharacterApi/1.0.0": {
         "dependencies": {
+          "GitTools.Core-dotnet": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "10.0.7",
           "Microsoft.EntityFrameworkCore": "10.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.7",
@@ -42,6 +43,14 @@
           "lib/net8.0/Azure.Identity.dll": {
             "assemblyVersion": "1.14.2.0",
             "fileVersion": "1.1400.225.36004"
+          }
+        }
+      },
+      "GitTools.Core-dotnet/1.0.0": {
+        "runtime": {
+          "lib/netstandard1.3/GitTools.Core.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.115.64780"
           }
         }
       },
@@ -2081,6 +2090,13 @@
       "sha512": "sha512-YhNMwOTwT+I2wIcJKSdP0ADyB2aK+JaYWZxO8LSRDm5w77LFr0ykR9xmt2ZV5T1gaI7xU6iNFIh/yW1dAlpddQ==",
       "path": "azure.identity/1.14.2",
       "hashPath": "azure.identity.1.14.2.nupkg.sha512"
+    },
+    "GitTools.Core-dotnet/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B8YxMx+yW++f2R1qPqiWGLkxOsZaiBV8hJqqU4gDO0k5qmOqnmueE0DEP5OoZuYf4HFBtdFt1EHFf3aA/Odl0w==",
+      "path": "gittools.core-dotnet/1.0.0",
+      "hashPath": "gittools.core-dotnet.1.0.0.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",
