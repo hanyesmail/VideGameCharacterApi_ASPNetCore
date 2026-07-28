@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VideoGameCharacterApi.Data;
-using VideoGameCharacterApi.Dtos;
-using VideoGameCharacterApi.Models;
+using VideoGameCharacterApi.Data.Models;
+using VideoGameCharacterApi.Data.Dtos;
 
 namespace VideoGameCharacterApi.Controllers
 {

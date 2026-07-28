@@ -1,4 +1,4 @@
-namespace VideoGameCharacterApi.Dtos;
+namespace VideoGameCharacterApi.Data.Dtos;
 
 public class CharacterDto
 {
