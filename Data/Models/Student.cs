@@ -13,5 +13,5 @@ public class Student
     public List<StudentImage>? StudentImages { get; set; }
 
     //ICollection<T>  --> To define many to many relationship
-    // public ICollection<Subjects>? Subject { get; set; }
+    public ICollection<Subjects>? Subject { get; set; }
 }

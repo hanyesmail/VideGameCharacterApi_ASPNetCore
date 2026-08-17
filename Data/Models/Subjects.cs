@@ -13,5 +13,5 @@ public class Subjects
     public String? SubjectName { get; set; }
 
     // ICollection<T>  --> To define many to many relationship
-    // public ICollection<Student>? Students { get; set; }
+    public ICollection<Student>? Students { get; set; }
 }
