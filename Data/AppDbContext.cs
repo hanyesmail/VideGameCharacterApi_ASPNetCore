@@ -13,6 +13,8 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         //modelBuilder.ApplyConfigurationsFromAssembly(typeof(CharacterColorEntityTypeConfig).Assembly);
         new CharacterColorEntityTypeConfig().Configure(modelBuilder.Entity<CharacterColor>());
         new CharacterEntityTypeConfig().Configure(modelBuilder.Entity<Character>());
+        new StudentEntityTypeConfig().Configure(modelBuilder.Entity<Student>());
+        new StudentImageEntityTypeConfig().Configure(modelBuilder.Entity<StudentImage>());
         // ==============================================
         
         // To add new database table without adding new DbSet
@@ -36,8 +38,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     }
 
     public DbSet<Character> Characters => Set<Character>();
-    
     public DbSet<CharacterType> CharacterTypes => Set<CharacterType>();
-    
     public DbSet<CharacterColor> CharacterColors => Set<CharacterColor>();
+    public DbSet<Student> Students => Set<Student>();
+    public DbSet<StudentImage>  StudentImages => Set<StudentImage>();
+    public DbSet<Subjects>  Subjects => Set<Subjects>();
 }
