@@ -14,5 +14,11 @@ public class StudentEntityTypeConfig : IEntityTypeConfiguration<Student>
 
         // builder.HasMany(s => s.StudentImages)
         //     .WithOne();
+
+        // To add index on specific column with unique value
+        // builder.HasIndex(s => s.Name).IsUnique();
+
+        // To increment any column according to a shared sequence number
+        // builder.Property(p => p.Sequence).HasDefaultValue("NEXT VALUE FOR SharedSequenceNumber");
     }
 }

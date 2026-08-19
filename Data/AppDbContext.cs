@@ -35,6 +35,29 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         // To set another schema as a default schema
         // modelBuilder.HasDefaultSchema("SchemaName");
         // ==============================================
+
+        // Create Shared Sequence Number Over All DB Entities
+        //modelBuilder.HasSequence<int>("SharedSequenceNumber");
+
+        //------------- DATA SEEDING ------------------
+        modelBuilder.Entity<Subjects>().HasData(new Subjects
+        {
+            SubjectId = 1,
+            SubjectName = "Science"
+        });
+
+        modelBuilder.Entity<Subjects>().HasData(new Subjects
+        {
+            SubjectId = 2,
+            SubjectName = "English"
+        });
+        
+        modelBuilder.Entity<Subjects>().HasData(new Subjects
+        {
+            SubjectId = 3,
+            SubjectName = "Arabic"
+        });
+        //================================================
     }
 
     public DbSet<Character> Characters => Set<Character>();
@@ -43,4 +66,8 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Student> Students => Set<Student>();
     public DbSet<StudentImage>  StudentImages => Set<StudentImage>();
     public DbSet<Subjects>  Subjects => Set<Subjects>();
+    
+    public DbSet<Book>  Books => Set<Book>();
+    public DbSet<Author>  Authors => Set<Author>();
+    public DbSet<Nationality>  Nationalities => Set<Nationality>();
 }
