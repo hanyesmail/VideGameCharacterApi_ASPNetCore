@@ -14,8 +14,21 @@ builder.Services.AddOpenApi();
 // builder.Services.AddDbContext<AppDbContext>(options => 
 //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// builder.Services.AddDbContext<AppDbContext>(options =>
+//     options
+//         .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options
+        .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+        .UseLazyLoadingProxies());
+
+
+// To add more configuration on DbContext like => No Tracking
+// builder.Services.AddDbContext<AppDbContext>(options =>
+//     options
+//         .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+//         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
 var app = builder.Build();
 

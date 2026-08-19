@@ -13,10 +13,10 @@ public class Student
     [Column(TypeName = "varchar(50)"), MaxLength(50)]
     public string? Name { get; set; }
 
-    public List<StudentImage>? StudentImages { get; set; }
+    public virtual List<StudentImage>? StudentImages { get; set; }
 
     public int Sequence { get; set; }
 
     //ICollection<T>  --> To define many to many relationship
-    public ICollection<Subjects>? Subject { get; set; }
+    public virtual ICollection<Subjects>? Subject { get; set; }
 }

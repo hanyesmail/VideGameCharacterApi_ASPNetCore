@@ -19,7 +19,7 @@ public class Character
     // ==============================================
     public int Id { get; set; }
     
-    // To change type of a column
+    // To change datatype of a column
     [Column(TypeName = "varchar(100)")]
     // ==============================================
     public string Name { get; set; }  = string.Empty;
@@ -43,7 +43,7 @@ public class Character
     [Column(TypeName =  "varchar(50)")]
     public string CreationDate { get; set; } = string.Empty;
     
-    public CharacterType? Type { get; set; } = new CharacterType();
+    public virtual CharacterType? Type { get; set; } = new CharacterType();
 
-    public CharacterColor? Color { get; set; } =  new CharacterColor();
+    public virtual CharacterColor? Color { get; set; } =  new CharacterColor();
 }

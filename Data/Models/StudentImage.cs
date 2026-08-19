@@ -11,5 +11,5 @@ public class StudentImage
     
     public int? StudentId { get; set; }
     
-    public Student? student { get; set; }
+    public virtual Student? student { get; set; }
 }
